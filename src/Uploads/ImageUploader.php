@@ -32,7 +32,7 @@ class ImageUploader
     {
         $path = 'uploads'.DIRECTORY_SEPARATOR.$this->generateFileName($file);
 
-        $image = $this->imageManager->make($file)->resize(450, null, function (Constraint $constraint) {
+        $image = $this->imageManager->make($file)->resize(false, null, function (Constraint $constraint) {
             $constraint->aspectRatio();
             $constraint->upsize();
         })->encode()->getEncoded();
